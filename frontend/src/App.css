@@ -1,0 +1,281 @@
+/* src/App.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+.footer{
+  position: fixed;
+  text-align: center;
+  background-color: skyblue;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.input-validation{
+  color: rgb(253, 23, 23);
+  width: 100%;
+  padding: 10px;
+  display: block;
+  text-align: left;
+}
+
+
+
+
+
+
+/* Basic styling for the products container */
+.products {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 20vh;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+/* Styling for the header row */
+.products > ul:first-child {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: skyblue;
+  border-bottom: 2px solid #ddd;
+  font-weight: bold;
+  list-style-type: none; /* Remove bullets */
+  margin: 0; /* Remove default margin */
+}
+
+/* General styling for each product row */
+.products > ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  list-style-type: none; /* Remove bullets */
+  margin: 0; /* Remove default margin */
+}
+
+/* Styling for each product item */
+.products > ul > li {
+  flex: 1;
+  text-align: center;
+}
+
+/* Styling for empty product message */
+.products > div {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #888;
+}
+
+/* Adding hover effect for product rows */
+.products > ul:nth-child(n+2):hover {
+  background-color: #f1f1f1;
+}
+
+
+
+.products ul li button{
+  background-color: skyblue;
+  border-radius: 30px;
+  border-color: aliceblue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* LoginForm.css */
+
+.contain {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contain h2 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.App {
+  text-align: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+h1 {
+  color: #333;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale3d(1.07,1.07,1.07);
+}
+
+.product-image {
+  width: 100%;
+  height: 15em;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.product-name {
+  font-size: 1.2em;
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.product-price {
+  font-size: 1em;
+  margin: 0 0 10px 0;
+  color: #555;
+}
+
+.product-company,
+.product-category {
+  font-size: 0.9em;
+  color: #777;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-image {
+    width: 100%;
+    height: 8em;
+  }
+  
+}
+
+/* @media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+} */
