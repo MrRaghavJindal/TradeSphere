@@ -15,14 +15,13 @@ const Section1= ()=>{
   >
     <div className="max-w-xl text-left ltr:sm:text-left rtl:sm:text-right">
       <h1 className="text-slate-950 text-3xl font-extrabold sm:text-5xl">
-        Let us find your
+      Welcome to TradeSphere
 
-        <strong className="block font-extrabold text-rose-700"> Forever Home. </strong>
+        <strong className="block font-extrabold text-rose-700"> Favourite Products </strong>
       </h1>
 
       <p className="mt-4 max-w-lg sm:text-xl/relaxed">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus
-        numquam ea!
+      Enjoy fast shipping and 24/7 customer support on all your purchases—because you deserve the best!
       </p>
 
       <div className="mt-8 flex flex-wrap gap-4 text-center">

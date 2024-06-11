@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 import {useNavigate} from "react-router-dom"
 import axios from 'axios';
 
+import { signInWithGoogle} from './firebase';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -27,15 +28,37 @@ const Signup = () => {
     
       const onSubmit = async (e) => {
         e.preventDefault();
-        try {
-          const result = await axios.post('http://localhost:5000/Register', formData);
+        try{
+          const response = await signInWithGoogle();
+
+          
+          const result = await axios.post('http://localhost:5000/check_signup_email', formData);
           const resultdata = result.data;
           console.log(resultdata);
-          localStorage.setItem("users",JSON.stringify(resultdata));
-          navigate('/')
-        } catch (error) {
+          if(resultdata.username)
+          {
+            alert('Email already exists');
+          }
+          else{
+              try {
+                const result = await axios.post('http://localhost:5000/Register', formData);
+                const resultdata = result.data;
+                console.log(resultdata);
+                localStorage.setItem("users",JSON.stringify(resultdata));
+                navigate('/')
+              } 
+              catch(error)
+              {
+                console.log(error);
+              }
+            }
+          
+        }
+        catch(error)
+        {
           console.error(error.response.data);
         }
+       
       };
 return (
 

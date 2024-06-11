@@ -42,7 +42,7 @@ const Navi=()=>{
               <li className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">
                 <Link to='/profile'>PROFILE</Link>
               </li>
-              <li className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">
+              <li onClick={toggleNavbar} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">
                 <Link onClick={logout} to="/">LOGOUT({JSON.parse(auth).username})</Link>
               </li>
             </ul>
@@ -67,19 +67,19 @@ const Navi=()=>{
 
     <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`} id="mobile-menu">
       <ul className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <li className="text-white block px-3 py-2 rounded-md text-base font-medium" >
+        <li onClick={toggleNavbar} className="text-white block px-3 py-2 rounded-md text-base font-medium" >
           <Link to='/'>PRODUCTS</Link>
         </li>
-        <li className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" >
+        <li onClick={toggleNavbar} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" >
           <Link to='/myproduct/'>MY PRODUCTS</Link>
         </li>
-        <li className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" >
+        <li onClick={toggleNavbar} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" >
           <Link to='/add'>ADD PRODUCTS</Link>
         </li>
-        <li className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" >
+        <li onClick={toggleNavbar} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" >
           <Link to='/profile'>PROFILE</Link>
         </li>
-        <li className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+        <li onClick={toggleNavbar} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
           <Link onClick={logout} to="/">LOGOUT({JSON.parse(auth).username})</Link>
         </li>
       </ul>
@@ -124,10 +124,10 @@ const Navi=()=>{
 
       <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`} id="mobile-menu">
         <ul className="px-2 pt-2 pb-3 space-y-1 sm:px-3 ">
-          <li className="text-white block px-3 py-2 rounded-md text-base font-medium">
+          <li onClick={toggleNavbar} className="text-white block px-3 py-2 rounded-md text-base font-medium">
             <Link to='/'>PRODUCTS</Link>
           </li>
-          <li className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+          <li onClick={toggleNavbar} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
             <Link to='/Login'>LOGIN</Link>
           </li>
         </ul>

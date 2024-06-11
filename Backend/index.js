@@ -45,25 +45,6 @@ app.post("/check_signup_email", async (req, res) => {
         }
 });
 
-app.post("/check_signup_username", async (req, res) => {
-        if (req.body.username) 
-        {
-                let result = await user.findOne(req.body);
-                if(result)
-                {
-                res.send(result);
-                } 
-                else 
-                {
-                res.send({ result: "NO USER FIND" });
-                }
-        } 
-        else 
-        {
-                res.send({ result: "NO USER FIND" });
-        }
-    });
-
 
 app.post("/login", async (req, res) => {
     if (req.body.email && req.body.password) 

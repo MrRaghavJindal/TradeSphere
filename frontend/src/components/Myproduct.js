@@ -6,8 +6,11 @@ const Myproduct = ()=>{
     const [products,setproduct] = useState([])
 
     useEffect(()=>{
-        getproduct()
-    },[])
+        if(products.length===0)
+        {
+          getproduct()
+        }
+    },[products])
     
     const getproduct = async()=>{
     try{

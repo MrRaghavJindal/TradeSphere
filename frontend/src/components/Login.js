@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
+import { BiLogoGoogle } from "react-icons/bi";
 
-import { AiOutlineTwitter } from "react-icons/ai";
-import { BiLogoFacebook } from "react-icons/bi";
 
+import { signInWithGoogle} from './firebase';
 const Login = () => {
     const navigate = useNavigate();
     useEffect(()=>{
@@ -27,6 +27,7 @@ const Login = () => {
       try {
         const result = await axios.post('http://localhost:5000/login', formData);
         const resultData = result.data
+        delete resultData.password;
         console.log(resultData);
         if(resultData.username)
           {
@@ -38,6 +39,39 @@ const Login = () => {
           }
       } catch (error) {
         console.error(error.response.data);
+      }
+    };
+
+    const handleSignIn = async () => {
+      try {
+        const response = await signInWithGoogle();
+        // console.log(response.user.email,response.user.displayName);
+        const result = await axios.post('http://localhost:5000/check_signup_email', {email:response.user.email});
+        const resultData = result.data
+          if(resultData.email)
+          {
+            delete resultData.password;
+            // console.log(resultData);
+            localStorage.setItem("users",JSON.stringify(resultData));
+            navigate('/');
+          }
+          else{
+            try {
+              const result = await axios.post('http://localhost:5000/Register', {
+                username: `${response.user.displayName}`,
+                email: `${response.user.email}`,
+                password: '1234'
+              });
+              const resultdata = result.data;
+              // console.log(resultdata);
+              localStorage.setItem("users",JSON.stringify(resultdata));
+              navigate('/')
+            } catch (error) {
+              console.error(error.response.data);
+            }
+          }
+      } catch (error) {
+        console.error(error);
       }
     };
     return(
@@ -57,18 +91,10 @@ const Login = () => {
             type="button"
             className="mx-1 h-9 w-9  rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-[0_4px_9px_-4px_#3b71ca]"
           >
-            <BiLogoFacebook
+            <BiLogoGoogle
               size={20}
               className="flex justify-center items-center w-full"
-            />
-          </button>
-          <button
-            type="button"
-            className="inlne-block mx-1 h-9 w-9 rounded-full bg-blue-600 hover:bg-blue-700 uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca]"
-          >
-            <AiOutlineTwitter
-              size={20}
-              className="flex justify-center items-center w-full"
+              onClick={handleSignIn}
             />
           </button>
         </div>
@@ -97,12 +123,12 @@ const Login = () => {
             <input className="mr-1" type="checkbox" />
             <span>Remember Me</span>
           </label> */}
-          <a
+          <Link
             className="text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4"
             href="#"
           >
             Forgot Password?
-          </a>
+          </Link>
         </div>
           <button
             className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"

@@ -44,7 +44,7 @@ const Section2 = () => {
             </h2>
 
             <p className="mt-1 text-sm text-gray-300">
-            Welcome to [Your Store Name], your one-stop shop for quality products at unbeatable prices. Whether you're looking for the latest tech gadgets, stylish fashion, or home essentials, we've got you covered.</p>
+            Welcome to TradeSphere, your one-stop shop for quality products at unbeatable prices. Whether you're looking for the latest tech gadgets, stylish fashion, or home essentials, we've got you covered.</p>
           </a>
 
           <a
@@ -73,7 +73,7 @@ const Section2 = () => {
             </h2>
 
             <p className="mt-1 text-sm text-gray-300">
-            At [Your Store Name], we prioritize quality and customer satisfaction. Our products are carefully curated to ensure they meet the highest standards. Enjoy fast shipping, easy returns, and 24/7 customer support.</p>
+            At TradeSphere, we prioritize quality and customer satisfaction. Our products are carefully curated to ensure they meet the highest standards. Enjoy fast shipping, easy returns, and 24/7 customer support.</p>
           </a>
 
           <a

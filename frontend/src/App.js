@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AddProduct from './components/AddProduct';
-import Footer from './components/Footer';
 import Login from './components/Login';
 import Myproduct from './components/Myproduct';
 import Navi from './components/Navi';
@@ -10,7 +9,6 @@ import Product from './components/Product';
 import Profile from './components/Profile';
 import Signup from './components/Signup';
 import UpdateProduct from './components/UpdateProduct';
-import LoginForm from './components/Test';
 function App() {
   return (
     <>

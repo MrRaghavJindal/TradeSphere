@@ -14,7 +14,9 @@ const UpdateProduct = ()=>{
     const navigate = useNavigate();
 
     useEffect(()=>{
-        getproducts()
+      
+          getproducts()
+   
     },[])
 
     const getproducts = async ()=>{
