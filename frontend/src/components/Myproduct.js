@@ -25,7 +25,7 @@ const Myproduct = ()=>{
         const auth = localStorage.getItem("users");
         let userId = JSON.parse(auth)._id;
 
-        let response = await axios.get(`http://localhost:5000/myproducts/${userId}`);
+        let response = await axios.get(`https://e-dashboard-theta.vercel.app/myproducts/${userId}`);
         let result = response.data;
         setproduct(result)
         localStorage.setItem("myproducts", JSON.stringify(result));
@@ -37,7 +37,7 @@ const Myproduct = ()=>{
 
     const deleteRecord = async(id)=>{
         try{
-        let data = await axios.delete(`http://localhost:5000/delete/${id}`);
+        let data = await axios.delete(`https://e-dashboard-theta.vercel.app/delete/${id}`);
         getproduct();
         }
         catch(err){
