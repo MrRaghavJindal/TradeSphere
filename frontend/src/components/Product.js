@@ -5,9 +5,9 @@ import Section2 from './Section2'
 const Product = ()=>{
     const [products,setproduct] = useState([])
 
+    const allProducts = localStorage.getItem("products");
     useEffect(()=>{
 
-        const allProducts = localStorage.getItem("products");
         if(allProducts)
           {
               setproduct(JSON.parse(allProducts))

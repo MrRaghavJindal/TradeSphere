@@ -4,19 +4,6 @@ import { Link } from 'react-router-dom';
 
 const Myproduct = ()=>{
 
-  const [rowData, setRowData] = useState([
-    { make: "Tesla", model: "Model Y", price: 64950, electric: true },
-    { make: "Ford", model: "F-Series", price: 33850, electric: false },
-    { make: "Toyota", model: "Corolla", price: 29600, electric: false },
-  ]);
-  
-  // Column Definitions: Defines the columns to be displayed.
-  const [colDefs, setColDefs] = useState([
-    { field: "make" },
-    { field: "model" },
-    { field: "price" },
-    { field: "electric" }
-  ]);
 
 
 
@@ -24,13 +11,11 @@ const Myproduct = ()=>{
     const [products,setproduct] = useState([])
 
     useEffect(()=>{
-      const onlyMyProducts = localStorage.getItem("products");
-        if(onlyMyProducts)
-        {
-          setproduct(JSON.parse( onlyMyProducts))
-        }
-        else{
-          getproduct()
+        const onlyMyProducts = localStorage.getItem("myproducts");
+        if (!onlyMyProducts) {
+            getproduct();
+        } else {
+            setproduct(JSON.parse(onlyMyProducts));
         }
     },[products])
     
@@ -43,7 +28,7 @@ const Myproduct = ()=>{
         let response = await axios.get(`http://localhost:5000/myproducts/${userId}`);
         let result = response.data;
         setproduct(result)
-        localStorage.setItem("products",JSON.stringify(result));
+        localStorage.setItem("myproducts", JSON.stringify(result));
     }
     catch(err){
         console.log(err);
@@ -130,8 +115,6 @@ const Myproduct = ()=>{
         </table>
       </div>
     </div>
-
-
 
             </>
     )
