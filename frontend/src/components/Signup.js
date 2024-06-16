@@ -32,7 +32,7 @@ const Signup = () => {
           const response = await signInWithGoogle();
 
           
-          const result = await axios.post('http://localhost:5000/check_signup_email', formData);
+          const result = await axios.post('https://e-dashboard-theta.vercel.app/check_signup_email', formData);
           const resultdata = result.data;
           console.log(resultdata);
           if(resultdata.username)
@@ -41,7 +41,7 @@ const Signup = () => {
           }
           else{
               try {
-                const result = await axios.post('http://localhost:5000/Register', formData);
+                const result = await axios.post('https://e-dashboard-theta.vercel.app/Register', formData);
                 const resultdata = result.data;
                 console.log(resultdata);
                 localStorage.setItem("users",JSON.stringify(resultdata));
