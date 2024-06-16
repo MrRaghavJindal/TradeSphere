@@ -21,7 +21,7 @@ const Product = ()=>{
 
     const getproduct = async()=>{
     try{
-        let response = await axios.get("http://localhost:5000/products");
+        let response = await axios.get("https://e-dashboard-theta.vercel.app/products");
         let result = response.data;
         setproduct(result);
         localStorage.setItem("products",JSON.stringify(result));
