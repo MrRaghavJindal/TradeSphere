@@ -21,7 +21,7 @@ const UpdateProduct = ()=>{
 
     const getproducts = async ()=>{
         try{
-        let response = await axios.get(`http://localhost:5000/product/${params.id}`);
+        let response = await axios.get(`https://e-dashboard-theta.vercel.app/${params.id}`);
         let result = response.data;
         setiformData({...formData,name:result.name,price:result.price,category:result.category,company:result.company,imageURL:result.imageURL})
         // console.log(result);
@@ -38,7 +38,7 @@ const UpdateProduct = ()=>{
     const onSubmit = async (e)=>{
         e.preventDefault();
         try{
-        let response = await axios.put(`http://localhost:5000/update/${params.id}`,formData);
+        let response = await axios.put(`https://e-dashboard-theta.vercel.app/${params.id}`,formData);
         let result = response.data;
         console.log("ye hai result",result);
         navigate('/')
