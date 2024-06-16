@@ -41,7 +41,7 @@ const AddProduct = ()=>{
         try {
           const str = await validateImage();
           if (str) {
-          const result = await axios.post('http://localhost:5000/add-product', formData);
+          const result = await axios.post('https://e-dashboard-theta.vercel.app/add-product', formData);
           const resultdata = result.data;
           console.log(resultdata);
           navigate('/')
