@@ -6,7 +6,17 @@ const Product = ()=>{
     const [products,setproduct] = useState([])
 
     useEffect(()=>{
-        getproduct()
+
+        const allProducts = localStorage.getItem("products");
+        if(allProducts)
+          {
+              setproduct(JSON.parse(allProducts))
+          }
+          else
+          { 
+            getproduct()
+          }
+          
     },[])
 
     const getproduct = async()=>{
@@ -14,6 +24,7 @@ const Product = ()=>{
         let response = await axios.get("http://localhost:5000/products");
         let result = response.data;
         setproduct(result);
+        localStorage.setItem("products",JSON.stringify(result));
     }
     catch(err){
         console.log(err)
