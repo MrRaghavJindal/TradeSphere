@@ -25,7 +25,7 @@ const Login = () => {
     const onSubmit = async (e) => {
       e.preventDefault();
       try {
-        const result = await axios.post('http://localhost:5000/login', formData);
+        const result = await axios.post('https://e-dashboard-theta.vercel.app/login', formData);
         const resultData = result.data
         delete resultData.password;
         console.log(resultData);
