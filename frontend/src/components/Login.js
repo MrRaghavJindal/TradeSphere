@@ -46,7 +46,7 @@ const Login = () => {
       try {
         const response = await signInWithGoogle();
         // console.log(response.user.email,response.user.displayName);
-        const result = await axios.post('http://localhost:5000/check_signup_email', {email:response.user.email});
+        const result = await axios.post('https://e-dashboard-theta.vercel.app/check_signup_email', {email:response.user.email});
         const resultData = result.data
           if(resultData.email)
           {
@@ -57,7 +57,7 @@ const Login = () => {
           }
           else{
             try {
-              const result = await axios.post('http://localhost:5000/Register', {
+              const result = await axios.post('https://e-dashboard-theta.vercel.app/Register', {
                 username: `${response.user.displayName}`,
                 email: `${response.user.email}`,
                 password: '1234'
