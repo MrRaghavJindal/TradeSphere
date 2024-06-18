@@ -29,8 +29,6 @@ const Signup = () => {
       const onSubmit = async (e) => {
         e.preventDefault();
         try{
-          const response = await signInWithGoogle();
-
           
           const result = await axios.post('https://e-dashboard-theta.vercel.app/check_signup_email', formData);
           const resultdata = result.data;
