@@ -10,11 +10,11 @@ const Profile = () => {
   const [profile, setProfile] = useState({
     name: `${auth.username}`,
     email: `${auth.email}`,
-    age: 30,
-    city: 'New York',
-    pincode: '10001',
-    state: 'NY',
-    country: 'USA',
+    age: ,
+    city: ' ',
+    pincode: ' ',
+    state: ' ',
+    country: ' ',
   });
 
   const handleInputChange = (e) => {
