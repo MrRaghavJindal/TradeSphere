@@ -14,10 +14,9 @@ function App() {
     <>
     <div>
       <BrowserRouter>
-      <div className="pb-12"> {/* Add padding top equal to the height of Navbar */}
+      <div className="pb-12">
       <Navi/>
       </div>
-      {/* <LoginForm/> */}
       <Routes>
 
         <Route path='/' element={<Product/>}/>
@@ -35,7 +34,6 @@ function App() {
 
       
     </div>
-      {/* <Footer/> */}
     </>
   );
 }
