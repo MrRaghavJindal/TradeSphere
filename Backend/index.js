@@ -9,7 +9,7 @@ const cors = require("cors");
 const userRoutes = require("./Routes/userRoute");
 const productRoutes = require("./Routes/productRoutes");
 
-const corsOptions = { origin: "*", methods: ["POST", "GET","PUT","DELETE"], credentials: true }
+const corsOptions = { origin: "https://trade-sphere.vercel.app", methods: ["POST", "GET","PUT","DELETE"], credentials: true }
 
 // apis
 app.use(cors());
