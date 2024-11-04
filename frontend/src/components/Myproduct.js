@@ -3,21 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Myproduct = ()=>{
-
-
-
-
-
     const [products,setproduct] = useState([])
 
     useEffect(()=>{
-        const onlyMyProducts = localStorage.getItem("myproducts");
-        if (!onlyMyProducts) {
             getproduct();
-        } else {
-            setproduct(JSON.parse(onlyMyProducts));
-        }
-    },[products])
+    },[])
     
     const getproduct = async()=>{
     try{

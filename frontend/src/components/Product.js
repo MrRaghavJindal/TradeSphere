@@ -5,18 +5,8 @@ import Section2 from './Section2'
 const Product = ()=>{
     const [products,setproduct] = useState([])
 
-    const allProducts = localStorage.getItem("products");
     useEffect(()=>{
-
-        if(allProducts)
-          {
-              setproduct(JSON.parse(allProducts))
-          }
-          else
-          { 
             getproduct()
-          }
-          
     },[])
 
     const getproduct = async()=>{

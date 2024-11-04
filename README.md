@@ -1,2 +1,2 @@
 MarketPlace for Buyers and Sellers
-https://trade-sphere.vercel.app/
+http://trade-sphere.vercel.app/

@@ -2,7 +2,6 @@ import React,{useState,useEffect} from "react";
 import {useNavigate} from "react-router-dom"
 import axios from 'axios';
 
-import { signInWithGoogle} from './firebase';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -44,8 +43,8 @@ const Signup = () => {
                 console.log(resultdata);
                 localStorage.setItem("users",JSON.stringify(resultdata));
                 navigate('/')
-              } 
-              catch(error)
+            } 
+        catch(error)
               {
                 console.log(error);
               }

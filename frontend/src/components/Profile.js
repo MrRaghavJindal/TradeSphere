@@ -10,7 +10,7 @@ const Profile = () => {
   const [profile, setProfile] = useState({
     name: `${auth.username}`,
     email: `${auth.email}`,
-    age: ,
+    age: '',
     city: ' ',
     pincode: ' ',
     state: ' ',
