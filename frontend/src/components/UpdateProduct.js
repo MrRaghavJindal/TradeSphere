@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 const UpdateProduct = ()=>{
+    const [image, setImage] = useState(null);
     const [formData,setiformData] = useState({
         name:"",
         price:"",
@@ -21,7 +22,7 @@ const UpdateProduct = ()=>{
 
     const getproducts = async ()=>{
         try{
-        let response = await axios.get(`https://e-dashboard-theta.vercel.app/${params.id}`);
+        let response = await axios.get(`https://e-dashboard-theta.vercel.app/product/${params.id}`);
         let result = response.data;
         setiformData({...formData,name:result.name,price:result.price,category:result.category,company:result.company,imageURL:result.imageURL})
         // console.log(result);
@@ -35,10 +36,30 @@ const UpdateProduct = ()=>{
 
     const onChange = (e)=>{ setiformData({...formData,[e.target.id]:e.target.value})}
 
+    const handleFileChange = (e) => {
+      const file = e.target.files[0];
+      setImage(file);
+    };
+
     const onSubmit = async (e)=>{
         e.preventDefault();
+        if (!image) return alert("Please select an image");
+
         try{
-        let response = await axios.put(`https://e-dashboard-theta.vercel.app/${params.id}`,formData);
+        const imageFormData = new FormData();
+        imageFormData.append("file", image);
+        imageFormData.append("upload_preset", "Tradesphere");
+
+        const imageResponse = await axios.post(
+          "https://api.cloudinary.com/v1_1/cloudy0/image/upload",
+          imageFormData
+        );
+
+        const imageUrl = imageResponse.data.secure_url;
+
+        // Create new form data object with imageURL
+        const updatedFormData = { ...formData, imageURL: imageUrl };
+        let response = await axios.put(`https://e-dashboard-theta.vercel.app/update/${params.id}`,updatedFormData);
         let result = response.data;
         console.log("ye hai result",result);
         navigate('/')
@@ -111,17 +132,15 @@ const UpdateProduct = ()=>{
           />
           <div className="mb-4">
           <label htmlFor="productCompany" className="block text-gray-700 text-sm font-bold mb-2">
-            Image URL
+            Image
           </label>
-          <input
-            type="text"
-            id="imageURL"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            placeholder="Enter Image URL"
-            value={formData.imageURL} 
-            onChange={onChange}
-            required
-          />
+          <img src={formData.imageURL} height={100} width={100}></img>
+        </div>
+        <div className="mb-4">
+          <label htmlFor="image" className="block text-gray-700 text-sm font-bold mb-2">
+            Upload Image
+          </label>
+          <input type="file" id="image" onChange={handleFileChange} />
         </div>
         </div>
         <button

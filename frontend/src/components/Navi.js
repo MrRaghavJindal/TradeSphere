@@ -26,7 +26,7 @@ const Navi=()=>{
       <div className="flex items-center justify-between h-16">
         <div className="flex items-center">
           <div className="flex-shrink-0">
-            <img className="h-8 w-8"src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"alt="Workflow"/>
+            <img className="h-8 w-8"src="https://static.vecteezy.com/system/resources/previews/023/654/784/non_2x/golden-logo-template-free-png.png"alt="Workflow"/>
           </div>
           <div className="hidden md:block">
             <ul className="ml-10 flex items-baseline space-x-4">
@@ -91,14 +91,16 @@ const Navi=()=>{
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <img className="h-8 w-8"src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"alt="Workflow"/>
+              <img className="h-8 w-8"src="https://static.vecteezy.com/system/resources/previews/023/654/784/non_2x/golden-logo-template-free-png.png"alt="Workflow"/>
             </div>
             <div className=" hidden md:block">
               <ul className="flex  ml-10 space-x-4  items-baseline">
                 <li className="text-white px-3 py-2 rounded-md text-base font-medium ">
                   <Link to='/'>PRODUCTS</Link>
                 </li>
-
+                <li className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">
+                  <Link to='/about'>ABOUT</Link>
+                </li>
                 <li className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">
                   <Link to='/Login'>LOGIN</Link>
                 </li>
@@ -126,6 +128,9 @@ const Navi=()=>{
         <ul className="px-2 pt-2 pb-3 space-y-1 sm:px-3 ">
           <li onClick={toggleNavbar} className="text-white block px-3 py-2 rounded-md text-base font-medium">
             <Link to='/'>PRODUCTS</Link>
+          </li>
+          <li onClick={toggleNavbar} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            <Link to='/about'>ABOUT</Link>
           </li>
           <li onClick={toggleNavbar} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
             <Link to='/Login'>LOGIN</Link>

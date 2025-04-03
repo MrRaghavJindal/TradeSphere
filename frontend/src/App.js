@@ -9,6 +9,7 @@ import Product from './components/Product';
 import Profile from './components/Profile';
 import Signup from './components/Signup';
 import UpdateProduct from './components/UpdateProduct';
+import About from './components/About';
 function App() {
   return (
     <>
@@ -29,6 +30,7 @@ function App() {
 
         <Route path='/Signup' element={<Signup/>}/>
         <Route path='/Login' element={<Login/>}/>
+        <Route path='/about' element={<About/>}/>
       </Routes>
       </BrowserRouter>
 

@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import Loader from './Loader';
 const Myproduct = ()=>{
     const [products,setproduct] = useState([])
+    const [Loading,setloading]  = useState(true)
 
     useEffect(()=>{
             getproduct();
@@ -19,6 +20,7 @@ const Myproduct = ()=>{
         let result = response.data;
         setproduct(result)
         localStorage.setItem("myproducts", JSON.stringify(result));
+        setloading(false)
     }
     catch(err){
         console.log(err);
@@ -34,11 +36,10 @@ const Myproduct = ()=>{
             console.log(err);
         }
     } 
+    if(Loading)
+      return <Loader></Loader>
     return(
         <>
-
-
-
 <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Product List</h1>
       <div className="overflow-x-auto">
